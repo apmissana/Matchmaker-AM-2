@@ -10,25 +10,23 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Homie Finder: Web Edition</title>           <!-- Title -->
+    <title>Friend Finder Website</title>           
 </head>
 
-<body>                                              <!-- Instructions -->
+<body>                                              
     
     <h1>
-        [-------------------------------]
-        |   Homie Finder: Web Edition   |
-        [-------------------------------}
+        
+        |   Friend Finder Website  |
+        
     </h1>
     <p>
-        This program will be the best way for me to
-        identify if you are a homie. You will be
-        answering 5 questions personally created by
-        me. Score ranging from 5 being strongly agree
-        to 1 being strongly disagree.
+        This Program will hopefully help me get to know if you
+        will be my friend. you will answer 5 of my questions,
+        5 being Strongly agree,and 1 being you disagree.
     </p>
 
-    <label>Do like watching anime?</label><br />             <!-- Question 1 -->
+    <label>Do you like video games?</label><br />             
     <select id="q1">
         <option value="5">Strongly Agree</option>
         <option value="4">Agree</option>
@@ -38,7 +36,7 @@
     </select>
     <br /><br />
 
-    <label>Do you like to watch movies?</label>     <!-- Question 2 -->
+    <label>Do you like to watch football?</label>     
     <select id="q2">
         <option value="5">Strongly Agree</option>
         <option value="4">Agree</option>
@@ -48,7 +46,7 @@
     </select>
     <br /><br />
 
-    <label>Do you like hanging out?</label>         <!-- Question 3 -->
+    <label>Are dogs better than cats?</label>         
     <select id="q3">
         <option value="5">Strongly Agree</option>
         <option value="4">Agree</option>
@@ -58,7 +56,7 @@
     </select>
     <br /><br />
 
-    <label>Do you like to play games?</label>       <!-- Question 4 -->
+    <label>Are Iphones better than android?</label>       
     <select id="q4">
         <option value="5">Strongly Agree</option>
         <option value="4">Agree</option>
@@ -68,7 +66,7 @@
     </select>
     <br /><br />
 
-    <label>Do you like bread?</label>               <!-- Question 5 -->
+    <label>Do you procrastinate alot?</label>               
     <select id="q5">
         <option value="5">Strongly Agree</option>
         <option value="4">Agree</option>
@@ -79,12 +77,12 @@
     <br /><br /><br />
     
     <button onclick="calculateCompatibility()">
-        Calculate Homie Compatibility
+        Calculate Friend Compatibility
     </button>
     <p id="compatibility"></p>
 
 <script>
-console.log("Starting Homie Finder: Web Edition...");
+console.log("Starting Friend Finder Website...");
 
 function calculateCompatibility() {
     console.log("calculateCompatibility()");
