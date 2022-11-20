@@ -1,11 +1,156 @@
 <!DOCTYPE html>
-<html>
+<html lang="lang"></html>
+
+<!--
+    Project: Matchmaker Web (Homie Finder: Web Edition)
+    Creator: Titus Marzan
+-->
+
+
+
 <head>
-<title>Hello World Azure Template</title>
+    <meta charset="UTF-8">
+    <title>Homie Finder: Web Edition</title>           <!-- Title -->
 </head>
-<body>
-<h1>Hello World Azure Static Website Template</h1>
-<p>This page is a sample page for a Hello World Azure Static Website Template. The page contains an HTML validation warning. 
-Can you find and fix that warning?</p>
+
+<body>                                              <!-- Instructions -->
+    
+    <h1>
+        [-------------------------------]
+        |   Homie Finder: Web Edition   |
+        [-------------------------------}
+    </h1>
+    <p>
+        This program will be the best way for me to
+        identify if you are a homie. You will be
+        answering 5 questions personally created by
+        me. Score ranging from 5 being strongly agree
+        to 1 being strongly disagree.
+    </p>
+
+    <label>Do like watching anime?</label><br />             <!-- Question 1 -->
+    <select id="q1">
+        <option value="5">Strongly Agree</option>
+        <option value="4">Agree</option>
+        <option value="3">Neutral</option>
+        <option value="2">Disagree</option>
+        <option value="1">Strongly Disagree</option>
+    </select>
+    <br /><br />
+
+    <label>Do you like to watch movies?</label>     <!-- Question 2 -->
+    <select id="q2">
+        <option value="5">Strongly Agree</option>
+        <option value="4">Agree</option>
+        <option value="3">Neutral</option>
+        <option value="2">Disagree</option>
+        <option value="1">Strongly Disagree</option>
+    </select>
+    <br /><br />
+
+    <label>Do you like hanging out?</label>         <!-- Question 3 -->
+    <select id="q3">
+        <option value="5">Strongly Agree</option>
+        <option value="4">Agree</option>
+        <option value="3">Neutral</option>
+        <option value="2">Disagree</option>
+        <option value="1">Strongly Disagree</option>
+    </select>
+    <br /><br />
+
+    <label>Do you like to play games?</label>       <!-- Question 4 -->
+    <select id="q4">
+        <option value="5">Strongly Agree</option>
+        <option value="4">Agree</option>
+        <option value="3">Neutral</option>
+        <option value="2">Disagree</option>
+        <option value="1">Strongly Disagree</option>
+    </select>
+    <br /><br />
+
+    <label>Do you like bread?</label>               <!-- Question 5 -->
+    <select id="q5">
+        <option value="5">Strongly Agree</option>
+        <option value="4">Agree</option>
+        <option value="3">Neutral</option>
+        <option value="2">Disagree</option>
+        <option value="1">Strongly Disagree</option>
+    </select>
+    <br /><br /><br />
+    
+    <button onclick="calculateCompatibility()">
+        Calculate Homie Compatibility
+    </button>
+    <p id="compatibility"></p>
+
+<script>
+console.log("Starting Homie Finder: Web Edition...");
+
+function calculateCompatibility() {
+    console.log("calculateCompatibility()");
+
+    const DESIRED_RESPONSE = [
+        5, /* strongly agree */
+        4, /* agree */
+        3, /* neutral */
+        2, /* disagree */
+        1, /* strongly disagree */
+    ]
+
+    const MAX_SCORE = 5
+
+    let q1Response = document.getElementById("q1").selectedOptions[0].value;
+    let q2Response = document.getElementById("q2").selectedOptions[0].value;
+    let q3Response = document.getElementById("q3").selectedOptions[0].value;
+    let q4Response = document.getElementById("q4").selectedOptions[0].value;
+    let q5Response = document.getElementById("q5").selectedOptions[0].value;
+
+    console.log("Question 1 Answers: ")
+    console.log(document.getElementById("q1").selectedOptions[0].text);
+    console.log(document.getElementById("q1").selectedOptions[0].value);
+    console.log(q1Response);
+
+    console.log("Question 2 Answers: ")
+    console.log(document.getElementById("q2").selectedOptions[0].text);
+    console.log(document.getElementById("q2").selectedOptions[0].value);
+    console.log(q2Response);
+
+    console.log("Question 3 Answers: ")
+    console.log(document.getElementById("q3").selectedOptions[0].text);
+    console.log(document.getElementById("q3").selectedOptions[0].value);
+    console.log(q3Response);
+
+    console.log("Question 4 Answers: ")
+    console.log(document.getElementById("q4").selectedOptions[0].text);
+    console.log(document.getElementById("q4").selectedOptions[0].value);
+    console.log(q4Response);
+
+    console.log("Question 5 Answers: ")
+    console.log(document.getElementById("q5").selectedOptions[0].text);
+    console.log(document.getElementById("q5").selectedOptions[0].value);
+    console.log(q5Response);
+
+    let q1Compatibility = 5 - Math.abs(q1Response - DESIRED_RESPONSE[0]);
+    let q2Compatibility = 5 - Math.abs(q2Response - DESIRED_RESPONSE[1]);
+    let q3Compatibility = 5 - Math.abs(q3Response - DESIRED_RESPONSE[2]);
+    let q4Compatibility = 5 - Math.abs(q4Response - DESIRED_RESPONSE[3]);
+    let q5Compatibility = 5 - Math.abs(q5Response - DESIRED_RESPONSE[4]);
+
+    console.log("c1="+q1Compatibility);
+    console.log("c2="+q2Compatibility);
+    console.log("c3="+q3Compatibility);
+    console.log("c4="+q4Compatibility);
+    console.log("c5="+q5Compatibility);
+
+    let totalCompatibility = q1Compatibility + q2Compatibility + q3Compatibility + q4Compatibility + q5Compatibility
+
+    totalCompatibility *= 100 / MAX_SCORE;
+    totalCompatibility = Math.round(totalCompatibility);
+    console.log("Compatibility: "+ totalCompatibility);
+
+    document.getElementById("compatibility").innerHTML = "Your compatibility is: " + totalCompatibility
+}
+
+</script>
 </body>
 </html>
